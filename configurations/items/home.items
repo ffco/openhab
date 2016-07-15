@@ -1,0 +1,30 @@
+Group	All
+Group	TemperatureSensors	(All)	
+
+Number   Outside_Temp   "Outside Temp [%.2f °F]" (TemperatureSensors) {weather="locationId=home, type=temperature, property=current, unit=fahrenheit"}
+DateTime	Sunrise_Time	"Sunrise [%1$tH:%1$tM]"	{ astro="planet=sun, type=rise, property=start" }
+DateTime	Sunset_Time	"Sunset [%1$tH:%1$tM]"	{ astro="planet=sun, type=set, property=start" }
+Switch	Landscape_Lights	"Landscape Lights"	<light>	{ zwave="9:command=switch_binary" }
+Switch	Sunset_Event	{ astro="planet=sun, type=set, property=end, offset=-15" }
+Number	HVAC_HeatSetPoint	"Heat Set [%.0f F]"	<temperature>	{ zwave="6:command=thermostat_setpoint,setpoint_type=1,setpoint_scale=1" }
+Number	HVAC_CoolSetPoint	"Thermostat Cool Set [%.0f F]"	<temperature>	(TemperatureSensors)		{ zwave="6:command=thermostat_setpoint,setpoint_type=2,setpoint_scale=1" }
+Number	HVAC_Temperature	"Thermostat Temp [%.1f °F]"	<temperature>	(TemperatureSensors)		{ zwave="6:command=sensor_multilevel,sensor_type=1" }
+Number	HVAC_Mode	"Mode [MAP(tstatmode.map):%d]"	<climate>	{ zwave="6:command=thermostat_mode" }
+Number	HVAC_Fan_Mode	"Fan Mode [%d]"	{ zwave="6:command=thermostat_fan_mode" }
+Number	HVAC_Operating_State	"Opp State [MAP(tstatopstate.map):%d]"	{ zwave="6:command=thermostat_operating_state" }
+Number	HVAC_Fan_State	"Fan State [MAP(tstatfan.map):%d]"	{ zwave="6:command=thermostat_fan_state" }
+Switch	swLight_Master	"Master Light"	{ zwave="7:command=SWITCH_MULTILEVEL" }
+Dimmer	diLight_Master	"Master Light Level [%d %%]"	{ zwave="7:command=SWITCH_MULTILEVEL" }
+Switch	swFan_Master	"Master Fan"	{ zwave="8:command=SWITCH_MULTILEVEL" }
+Dimmer	diFan_Master	"Master Fan Level [%d %%]"	{ zwave="8:command=SWITCH_MULTILEVEL" }
+
+//Item For Chart Time Switching
+Number  Temperature_Chart_Period
+
+Number	ZOOZ1_PIR_TEMPERATURE_1	"Basement Temp [%.2f F]" (TemperatureSensors) { zwave="10:command=sensor_multilevel,sensor_type=1,sensor_scale=1" }
+Number	ZOOZ1_PIR_REL_HUMID_1	"Basement Humidity [%.0f %%]"	{ zwave="10:command=sensor_multilevel,sensor_type=5" }
+Number  ZOOZ1_PIR_TEMPERATURE_2   "Sam Temp [%.2f F]" (TemperatureSensors) { zwave="11:command=sensor_multilevel,sensor_type=1,sensor_scale=1" }
+Number  ZOOZ1_PIR_REL_HUMID_2     "Sam Humidity [%.0f %%]"   { zwave="11:command=sensor_multilevel,sensor_type=5" }
+Number  ZOOZ1_PIR_TEMPERATURE_3   "Master Temp [%.2f F]" (TemperatureSensors) { zwave="12:command=sensor_multilevel,sensor_type=1,sensor_scale=1" }
+Number  ZOOZ1_PIR_REL_HUMID_3   "Master Humidity [%.0f %%]"   { zwave="12:command=sensor_multilevel,sensor_type=5" }
+

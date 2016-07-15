@@ -1,0 +1,37 @@
+sitemap home label="Franzel House"
+{
+	Frame label="Times" {
+		Text item=Sunrise_Time		
+		Text item=Sunset_Time		
+	}	
+	Frame label="Lights" {
+		Switch item=Landscape_Lights		
+	}	
+	Frame label="Thermostat" {
+		Setpoint item=HVAC_CoolSetPoint		
+		Setpoint item=HVAC_HeatSetPoint		
+		Text item=HVAC_Temperature		
+		Text item=HVAC_Mode		
+		Switch item=HVAC_Fan_Mode label="Fan Mode" mappings=[0="Auto", 1="On"]		
+		Text item=HVAC_Operating_State		
+		Text item=HVAC_Fan_State		
+		Text item=ZOOZ1_PIR_TEMPERATURE_1	
+		Text item=ZOOZ1_PIR_REL_HUMID_1		
+		Text item=ZOOZ1_PIR_TEMPERATURE_2
+                Text item=ZOOZ1_PIR_REL_HUMID_2   
+		Text item=ZOOZ1_PIR_TEMPERATURE_3
+                Text item=ZOOZ1_PIR_REL_HUMID_3   
+	}	
+	Frame label="Lights" {
+		Switch item=swLight_Master		
+		Setpoint item=diLight_Master minValue=20 maxValue=100 step=10		
+		Switch item=swFan_Master		
+		Selection item=diFan_Master label="Master Fan" mappings=[26="low", 57="mid", 71="high"]		
+	}	
+	Frame label="Temps" {
+		Switch item=Temperature_Chart_Period icon="chart" label="Chart Period" mappings=[0="Hour", 1="Day", 2="Week"]		
+		Chart item=TemperatureSensors period=h refresh=300 visibility=[Temperature_Chart_Period==0, Temperature_Chart_Period==Uninitialized]		
+		Chart item=TemperatureSensors period=D refresh=1800 visibility=[Temperature_Chart_Period==1]		
+		Chart item=TemperatureSensors period=W refresh=3600 visibility=[Temperature_Chart_Period==2]		
+	}	
+}
