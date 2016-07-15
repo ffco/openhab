@@ -1,0 +1,24 @@
+// set program.  0 = winter, 1 = summer.  presence - 0 = here, 1 = away
+
+var Number presence = 1
+var Number season = 1
+
+
+rule "Test1"
+when
+    Time cron "0 51 11 * * ?"
+then
+        if (season == 1) {
+                sendCommand(HVAC_CoolSetPoint,75)
+        }
+end
+
+rule "Test2"
+when
+    Time cron "0 54 11 * * ?"
+then
+	if (season == 0) {
+    		sendCommand(HVAC_CoolSetPoint,85)
+	}
+end
+
