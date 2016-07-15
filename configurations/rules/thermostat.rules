@@ -8,7 +8,7 @@ rule "Test1"
 when
     Time cron "0 51 11 * * ?"
 then
-        if (season == 1) {
+        if (season == 0 ) {
                 sendCommand(HVAC_CoolSetPoint,75)
         }
 end
@@ -19,6 +19,50 @@ when
 then
 	if (season == 0) {
     		sendCommand(HVAC_CoolSetPoint,85)
+	}
+end
+
+rule "Wake"
+when
+    Time cron "0 0 6 * * ?"
+then
+	if (season == 0) {
+		sendCommand(HVAC_HeatSetPoint,68)
+		sendCommand(HVAC_CoolSetPoint,85)
+	}
+end
+
+rule "AM Fan Off"
+when
+    Time cron "0 0 10 * 1,2,3,11,12 ?"
+then
+        if (season == 0) {
+		sendCommand(HVAC_Fan_Mode,0)
+	}
+
+rule "AM Cool Up"
+when
+    Time cron "0 0 12 * * ?"
+then
+        if (season == 0) {
+		sendCommand(HVAC_CoolSetPoint,85)
+	}
+
+rule "PM Fan On, Cool Down"
+when
+    Time cron "0 0 20 * * ?"
+then
+        if (season == 0) {
+\\		sendCommand(HVAC_Fan_Mode,1)
+		sendCommand(HVAC_CoolSetPoint,85)
+	}
+
+rule "Sleep"
+when
+    Time cron "0 0 23 * * ?"
+then
+        if (season == 0) {
+		sendCommand(HVAC_HeatSetPoint, 65)
 	}
 end
 
