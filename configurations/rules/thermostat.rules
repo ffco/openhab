@@ -53,8 +53,8 @@ when
     Time cron "0 0 20 * * ?"
 then
         if (season == 0) {
-\\		sendCommand(HVAC_Fan_Mode,1)
 		sendCommand(HVAC_CoolSetPoint,85)
+		\\		sendCommand(HVAC_Fan_Mode,1)
 	}
 
 rule "Sleep"
