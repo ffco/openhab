@@ -3,9 +3,11 @@ sitemap home label="House"
 	Frame label="Times" {
 		Text item=Sunrise_Time		
 		Text item=Sunset_Time		
+		Text item=SystemTime
 	}	
 	Frame label="Lights" {
 		Switch item=Landscape_Lights		
+		Switch item=swOut_Lights
 	}	
 	Frame label="Thermostat" {
 		Setpoint item=HVAC_CoolSetPoint		

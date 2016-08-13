@@ -1,6 +1,8 @@
 Group	All
 Group	TemperatureSensors	(All)	
 
+DateTime SystemTime "Current time [%1$tT %1$tA, %1$td.%1$tm.%1$tY]"
+
 Number   Outside_Temp   "Outside Temp [%.2f °F]" (TemperatureSensors) {weather="locationId=home, type=temperature, property=current, unit=fahrenheit"}
 DateTime	Sunrise_Time	"Sunrise [%1$tH:%1$tM]"	{ astro="planet=sun, type=rise, property=start" }
 DateTime	Sunset_Time	"Sunset [%1$tH:%1$tM]"	{ astro="planet=sun, type=set, property=start" }
@@ -16,6 +18,7 @@ Number	HVAC_Fan_State	"Fan State [MAP(tstatfan.map):%d]"	{ zwave="6:command=ther
 Switch	swLight_Master	"Master Light"	{ zwave="7:command=SWITCH_MULTILEVEL" }
 Dimmer	diLight_Master	"Master Light Level [%d %%]"	{ zwave="7:command=SWITCH_MULTILEVEL" }
 Switch	swFan_Master	"Master Fan"	{ zwave="8:command=SWITCH_MULTILEVEL" }
+Switch  swOut_Lights	"Outside Lights"	{ zwave="13:command=SWITCH_BINARY" }
 Dimmer	diFan_Master	"Master Fan Level [%d %%]"	{ zwave="8:command=SWITCH_MULTILEVEL" }
 
 //Item For Chart Time Switching
