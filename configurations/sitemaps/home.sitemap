@@ -3,11 +3,14 @@ sitemap home label="House"
 	Frame label="Times" {
 		Text item=Sunrise_Time		
 		Text item=Sunset_Time		
-		Text item=SystemTime
 	}	
 	Frame label="Lights" {
-		Switch item=Landscape_Lights		
+		Switch item=swLandscape_Lights		
 		Switch item=swOut_Lights
+		Switch item=swLight_Master		
+		Setpoint item=diLight_Master minValue=20 maxValue=100 step=10		
+		Switch item=swFan_Master		
+		Selection item=diFan_Master label="Master Fan" mappings=[26="low", 57="mid", 71="high"]	
 	}	
 	Frame label="Thermostat" {
 		Setpoint item=HVAC_CoolSetPoint		
@@ -23,12 +26,6 @@ sitemap home label="House"
                 Text item=ZOOZ1_PIR_REL_HUMID_2   
 		Text item=ZOOZ1_PIR_TEMPERATURE_3
                 Text item=ZOOZ1_PIR_REL_HUMID_3   
-	}	
-	Frame label="Lights" {
-		Switch item=swLight_Master		
-		Setpoint item=diLight_Master minValue=20 maxValue=100 step=10		
-		Switch item=swFan_Master		
-		Selection item=diFan_Master label="Master Fan" mappings=[26="low", 57="mid", 71="high"]		
 	}	
 	Frame label="Temps" {
 		Switch item=Temperature_Chart_Period icon="chart" label="Chart Period" mappings=[0="Hour", 1="Day", 2="Week"]		
