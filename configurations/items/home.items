@@ -20,7 +20,7 @@ Dimmer	  diFan_Master	"Master Fan Level [%d %%]"	{ zwave="8:command=SWITCH_MULTI
 Switch    swOut_Lights	"Outside Lights"	{ zwave="13:command=SWITCH_BINARY" }
 
 //Item For Chart Time Switching
-Number  Temperature_Chart_Period
+Number    Temperature_Chart_Period
 
 Number	  ZOOZ1_PIR_TEMPERATURE_1	"Basement Temp [%.2f F]" (TemperatureSensors) { zwave="10:command=sensor_multilevel,sensor_type=1,sensor_scale=1" }
 Number	  ZOOZ1_PIR_REL_HUMID_1	"Basement Humidity [%.0f %%]"	{ zwave="10:command=sensor_multilevel,sensor_type=5" }
