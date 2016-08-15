@@ -3,8 +3,8 @@ rule "Turn landcape and outside lights on at Sunset"
 when
         Item Sunset_Event received update ON
 then
-        sendCommand(Landscape_Lights, ON)
-	sendCommand(swOut_Lights, ON)
+        sendCommand(Out_Lights, ON)
+	sendCommand(Lanscape_Lights, ON)
 end
 
 
@@ -13,8 +13,8 @@ rule "Switch landscape lights off"
 when
     Time cron "0 30 23 * * ?"
 then
-    sendCommand(Landscape_Lights, OFF)
-    sendCommand(swOut_Lights, OFF)
+        sendCommand(Out_Lights, OFF)
+        sendCommand(Lanscape_Lights, OFF)
 end
 
 //turn fan off early in the AM
