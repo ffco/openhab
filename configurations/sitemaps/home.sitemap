@@ -5,9 +5,9 @@ sitemap home label="House"
 		Text item=Sunset_Time		
 	}	
 	Frame label="Lights" {
-		Switch item=swLandscape_Lights		
-		Switch item=swOut_Lights
-		Switch item=swLight_Master		
+		Switch item=Landscape_Lights
+		Switch item=Out_Lights
+		Switch item=swLight_Master
 		Setpoint item=diLight_Master minValue=20 maxValue=100 step=10		
 		Switch item=swFan_Master		
 		Selection item=diFan_Master label="Master Fan" mappings=[26="low", 57="mid", 71="high"]	
