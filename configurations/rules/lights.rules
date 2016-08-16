@@ -4,7 +4,7 @@ when
         Item Sunset_Event received update ON
 then
         sendCommand(Out_Lights, ON)
-	sendCommand(Lanscape_Lights, ON)
+	sendCommand(Landscape_Lights, ON)
 end
 
 
@@ -14,13 +14,5 @@ when
     Time cron "0 30 23 * * ?"
 then
         sendCommand(Out_Lights, OFF)
-        sendCommand(Lanscape_Lights, OFF)
-end
-
-//turn fan off early in the AM
-rule "Turn MBR fan off"
-when
-    Time cron "0 0 4 * * ?"
-then
-    sendCommand(swFan_Master, OFF)
+        sendCommand(Landscape_Lights, OFF)
 end
