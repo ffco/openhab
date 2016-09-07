@@ -8,9 +8,11 @@ then
 
 	if (swFan_Master.state != ON) {
 // need to put an if for summer only
-		if ((hour >= 9) || (hour <= 18) && ZOOZ1_PIR_TEMPERATURE_3.state < HVAC_Temperature.state) {
-			sendCommand(swFan_Master,ON)
-//			logMessage = "upstairs fan on - temp difference"
+		if (now.getHourOfDay() >= 9 || now.getHourOfDay() <= 22) {
+			 if (ZOOZ1_PIR_TEMPERATURE_3.state < HVAC_Temperature.state) {
+				sendCommand(swFan_Master,ON)
+//				logMessage = "upstairs fan on - temp difference"
+			}
 		}
         }
 end
