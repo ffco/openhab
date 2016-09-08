@@ -1,3 +1,4 @@
+import org.openhab.core.library.types.*
 import org.joda.time.*
 
 rule "upstairstempdiff"
