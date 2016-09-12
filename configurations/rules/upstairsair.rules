@@ -1,3 +1,4 @@
+/*
 import org.openhab.core.library.types.*
 import org.joda.time.*
 
@@ -27,3 +28,4 @@ when
 then
     sendCommand(swFan_Master, OFF)
 end
+*/
