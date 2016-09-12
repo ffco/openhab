@@ -1,17 +1,17 @@
-rule "upstairstempdiff"
+//rule "upstairstempdiff"
 
-when
-	Item ZOOZ1_PIR_TEMPERATURE_3 received update		
-then
-	var Number hour = now.getHourOfDay
+//when
+//	Item ZOOZ1_PIR_TEMPERATURE_3 received update		
+//then
+//	var Number hour = now.getHourOfDay
 // add current state to make sure you can return state if needed 
 
-	if (swFan_Master.state != ON) {
+//	if (swFan_Master.state != ON) {
 // need to put an if for summer only
-		if ((hour >= 8) || (hour <= 18) && ZOOZ1_PIR_TEMPERATURE_3.state < HVAC_Temperature.state) {
-			sendCommand(swFan_Master,ON)
+//		if ((hour >= 8) || (hour <= 18) && ZOOZ1_PIR_TEMPERATURE_3.state < HVAC_Temperature.state) {
+//			sendCommand(swFan_Master,ON)
 //			logMessage = "upstairs fan on - temp difference"
-		}
-        }
-end
+//		}
+//        }
+//end
 
